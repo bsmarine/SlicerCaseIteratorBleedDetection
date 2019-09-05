@@ -462,6 +462,13 @@ class SlicerCaseIteratorLogic(ScriptedLoadableModuleLogic):
     ###placeModePersistence = 1
     ###slicer.modules.markups.logic().StartPlaceMode(placeModePersistence)
 
+    ##Turn on Hot Link Mode
+
+    compositeNodes = slicer.util.getNodesByClass('vtkMRMLSliceCompositeNode')
+    for node in compositeNodes:
+      node.SetHotLinkedControl(1)
+      node.SetLinkedControl(1)
+
 
     # #Load background volume to each view
     # layoutManager = slicer.app.layoutManager()
@@ -510,8 +517,8 @@ class SlicerCaseIteratorLogic(ScriptedLoadableModuleLogic):
     # Close the scene and start a fresh one
     slicer.mrmlScene.Clear(0)
 
-    if slicer.util.selectedModule() == 'SegmentEditor':
-      slicer.modules.SegmentEditorWidget.exit()
+    #if slicer.util.selectedModule() == 'SegmentEditor':
+      #licer.modules.SegmentEditorWidget.exit()
 
     node = slicer.vtkMRMLViewNode()
     slicer.mrmlScene.AddNode(node)
