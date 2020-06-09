@@ -10,9 +10,9 @@ loading and saving.
 ``` json
 {"initials":"BM",
 
-"data_dir":"/Users/brettmarinelli/Dropbox/IR_Work/Bleed_Studies/",
+"data_dir":"/Users/brettmarinelli//Bleed_Studies/",
 
-"case_tables":"/Users/brettmarinelli/Dropbox/IR_Work/BodyBleeds/Code/CaseIteratorCustomization/CaseTables"
+"case_tables":"/Users/brettmarinelli/Bleed_Code/CaseIteratorCustomization/CaseTables"
 
 }
 ```
