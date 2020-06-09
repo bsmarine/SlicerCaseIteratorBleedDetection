@@ -387,6 +387,13 @@ class SlicerCaseIteratorLogic(ScriptedLoadableModuleLogic):
       self.currentCase = self.iterator.loadCase(self.currentIdx)
       im, ma, add_im, add_ma = self.currentCase
 
+      ##Turn Hot Link Off From Prior Case
+
+      compositeNodes = slicer.util.getNodesByClass('vtkMRMLSliceCompositeNode')
+      for node in compositeNodes:
+            node.SetHotLinkedControl(0)
+            node.SetLinkedControl(0)
+
       ##Synchronize Slice Views
 
       slicer.sliceNodes = [slicer.app.layoutManager().sliceWidget(viewName).mrmlSliceNode() for viewName in slicer.app.layoutManager().sliceViewNames()]
@@ -432,12 +439,12 @@ class SlicerCaseIteratorLogic(ScriptedLoadableModuleLogic):
       # Snap the viewers to the slice plane of the main image
       self._rotateToVolumePlanes(im)
 
-      ### Change redirection to Markups Module
+      ### Change to Markups Module
       if self.redirect:
         if slicer.util.selectedModule() != 'Markups':
           slicer.util.selectModule('Markups')
-        else:
-          slicer.modules.SegmentEditorWidget.enter()
+        #else:
+          #slicer.modules.SegmentEditorWidget.enter()
 
         # Explictly set the segmentation and master volume nodes
         # segmentEditorWidget = slicer.modules.segmenteditor.widgetRepresentation().self().editor
@@ -446,7 +453,7 @@ class SlicerCaseIteratorLogic(ScriptedLoadableModuleLogic):
         # segmentEditorWidget.setMasterVolumeNode(im)
 
     except Exception as e:
-      self.logger.warning("Error loading new case: %s", e.message)
+      #self.logger.warning("Error loading new case: %s", str(e))
       self.logger.debug('', exc_info=True)
     
     ###Turn On Persistence Mode For Fiducials

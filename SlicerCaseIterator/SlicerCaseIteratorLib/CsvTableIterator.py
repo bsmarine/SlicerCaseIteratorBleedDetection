@@ -353,7 +353,7 @@ class CaseTableIteratorLogic(IteratorBase.IteratorLogicBase):
     if not load_success:
       self.logger.warning('Failed to load ' + im_path)
       return None
-
+    print ("Successfully Loaded "+im_path)
     # Use the file basename as the name for the loaded volume
     im_node.SetName(os.path.splitext(os.path.basename(im_path))[0])
 
@@ -438,8 +438,8 @@ class CaseTableIteratorLogic(IteratorBase.IteratorLogicBase):
 
     self.logger.info("Saved Node has "+str(numberOfPoints)+" Points")
 
-    if numberOfPoints != 6:
-      self.logger.info("Need To Fix Fiducials So There Are Exactly 6 Points!!")
+    if numberOfPoints not in [6,12,18,24,30]:
+      self.logger.info("Incomplete Set of Fiducials -- six points per annotation required")
 
       return
 
