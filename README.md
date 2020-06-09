@@ -10,7 +10,7 @@ loading and saving.
 ``` json
 {"initials":"BM",
 
-"data_dir":"/Users/brettmarinelli//Bleed_Studies/",
+"data_dir":"/Users/brettmarinelli/Bleed_Studies/",
 
 "case_tables":"/Users/brettmarinelli/Bleed_Code/CaseIteratorCustomization/CaseTables"
 
