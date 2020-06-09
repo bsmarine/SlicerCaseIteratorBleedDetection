@@ -5,9 +5,17 @@ loading and saving.
 
 ## Usage
 
-### Customize Setup for Streamlined Implementation
-
 ## Edit caseiterator_config.json file in CaseIteratorCustomization folder
+
+``` json
+{"initials":"BM",
+
+"data_dir":"/Users/brettmarinelli/Dropbox/IR_Work/Bleed_Studies/",
+
+"case_tables":"/Users/brettmarinelli/Dropbox/IR_Work/BodyBleeds/Code/CaseIteratorCustomization/CaseTables"
+
+}
+```
 
 ## Add Following to .slicerrc To Call Case Iterator Customization Script
 
